@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Flight Booking Automation</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img src="https://wallup.net/wp-content/uploads/2019/09/344761-boeing-747-airliner-aircraft-plane-airplane-boeing-747-transport-36-2.jpg" class="img-element" height="50px" width="50px" href="#"/>
+            <a class="navbar-brand" href="#">FlightBooker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="container mt-5">
+        <h1 class="text-center">Book Your Flight</h1>
+        <p class=""text-center">Book Flights Easily, Anywhere, Anytime
+            Your Dream Trip is Just a Few Clicks Away
+            
+            Welcome to [Your Travel Website Name], where booking your flights has never been easier. Our automated system does the heavy lifting so you can focus on what matters most—planning the perfect trip. Whether you're booking a spontaneous weekend getaway or an international adventure, we’ve got you covered.</p>
+        <form id="bookingForm" class="mt-4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="from">From:</label>
+                    <input type="text" class="form-control" id="from" placeholder="Enter departure city" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="to">To:</label>
+                    <input type="text" class="form-control" id="to" placeholder="Enter destination city" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="date">Travel Date:</label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="form-group col-md-6 adult-count">
+                    <label>Adults:</label>
+                    <button type="button" id="decreaseAdults" class="btn btn-outline-secondary">-</button>
+                    <span id="adultCount" class="mx-2">1</span>
+                    <button type="button" id="increaseAdults" class="btn btn-outline-secondary">+</button>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search Flights</button>
+        </form>
+
+        <div id="results" class="results mt-4" style="display:none;">
+            <h2 id="flightInfo"></h2>
+            <button id="selectFlight" class="btn btn-success" style="display:none;">Select Flight</button>
+        </div>
+
+        <div id="passengerDetails" class="details mt-4" style="display:none;">
+            <h3>Passenger Details</h3>
+            <form id="passengerForm">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" class="form-control" id="dob" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="other" value="Other">
+                        <label class="form-check-label" for="other">Other</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Passenger Details</button>
+            </form>
+        </div>
+
+        <div>
+            <h2>Logs</h2>
+            <pre id="logOutput"></pre>
+        </div>
+    </section>
+
+    <section id="about" class="container mt-5">
+        <h2 class="text-center">About Us</h2>
+        <p>FlightBooker is dedicated to providing the best flight booking experience. Our team works tirelessly to ensure that your travel plans are seamless and stress-free.</p>
+        
+    </section>
+
+    <section id="services" class="container mt-5">
+        <h2 class="text-center">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>Easy Booking</h3>
+               
+                <p>Book flights easily with our user-friendly interface.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Customer Support</h3>
+                <p>Our support team is available 24/7 to assist you.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Flexible Cancellations</h3>
+                <p>We provide flexible cancellation policies for your peace of mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mt-5">
+        <h2 class="text-center">Contact Us</h2>
+        <form id="contactForm" class="mt-3">
+            <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+            <input type="email" class="form-control mb-2" placeholder="Your Email" required>
+            <textarea class="form-control mb-2" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 FlightBooker. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
